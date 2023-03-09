@@ -30,10 +30,24 @@ namespace PropertyRental.Controllers
 
             return View(objCategoryList);
         }
-
+        //Get
         public IActionResult Create()
         {
             return View();
+        }
+
+        //Post
+        // Called when we post the create category form
+        [HttpPost]
+        [ValidateAntiForgeryToken] // Helps in preventing cross site request forgery attacks
+        public IActionResult Create(Category obj)
+        {
+            //Add the category object to database
+            _db.Categories.Add(obj);
+            _db.SaveChanges(); // Saved to database
+
+            //After saving data redirect to index action of category
+            return RedirectToAction("Index");
         }
     }
 }
