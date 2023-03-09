@@ -42,12 +42,21 @@ namespace PropertyRental.Controllers
         [ValidateAntiForgeryToken] // Helps in preventing cross site request forgery attacks
         public IActionResult Create(Category obj)
         {
-            //Add the category object to database
-            _db.Categories.Add(obj);
-            _db.SaveChanges(); // Saved to database
+            //Validate the object received
+            if (ModelState.IsValid)
+            {
 
-            //After saving data redirect to index action of category
-            return RedirectToAction("Index");
+                //Add the category object to database
+                _db.Categories.Add(obj);
+                _db.SaveChanges(); // Saved to database
+
+                //After saving data redirect to index action of category
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(obj);
+            }
         }
     }
 }
