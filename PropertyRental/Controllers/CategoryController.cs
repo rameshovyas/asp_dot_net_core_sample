@@ -64,5 +64,53 @@ namespace PropertyRental.Controllers
                 return View(obj);
             }
         }
+
+        //Get
+        public IActionResult Edit(int? id)
+        {
+            if(id == null || id==0)
+            {
+                return NotFound();
+            }
+
+            //Find the category in table with the specified id
+            //var categoryFromDB = _db.Categories.SingleOrDefault(c => c.Id == id);
+            var categoryFromDB = _db.Categories.Find(id);
+            if (categoryFromDB == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDB);
+        }
+
+        //Post
+        // Called when we post the create category form
+        [HttpPost]
+        [ValidateAntiForgeryToken] // Helps in preventing cross site request forgery attacks
+        public IActionResult Edit(Category obj)
+        {
+            //Custom Validations
+            if (obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Name", "The Name and Displayorder cannot be same");
+            }
+
+            //Validate the object received
+            if (ModelState.IsValid)
+            {
+
+                //Add the category object to database
+                _db.Categories.Add(obj);
+                _db.SaveChanges(); // Saved to database
+
+                //After saving data redirect to index action of category
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(obj);
+            }
+        }
     }
 }
