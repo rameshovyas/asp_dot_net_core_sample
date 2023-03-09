@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s6IGcnWyRK9Oc3inJ33FbSYzWGhuYw2h6Of37AmB+48=",
+  "Hash": "P3/gUTvh9ErWXz6OXNWf6wCPY8QK2CnFphELqiX0YT4=",
   "Source": "PropertyRental",
   "BasePath": "_content/PropertyRental",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\work\\dotnet\\web\\PropertyRental\\PropertyRental\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PropertyRental.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\work\\dotnet\\web\\PropertyRental\\PropertyRental\\wwwroot\\css\\BootsWatchTheme.css",
+      "SourceId": "PropertyRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\work\\dotnet\\web\\PropertyRental\\PropertyRental\\wwwroot\\",
+      "BasePath": "_content/PropertyRental",
+      "RelativePath": "css/BootsWatchTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\BootsWatchTheme.css"
     },
     {
       "Identity": "D:\\work\\dotnet\\web\\PropertyRental\\PropertyRental\\wwwroot\\css\\site.css",

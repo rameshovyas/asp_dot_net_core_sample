@@ -12,7 +12,7 @@ build_property.RootNamespace = PropertyRental
 build_property.ProjectDir = D:\work\dotnet\web\PropertyRental\PropertyRental\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\work\dotnet\web\PropertyRental\PropertyRental
 build_property._RazorSourceGeneratorDebug = 
 

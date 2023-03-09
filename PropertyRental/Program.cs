@@ -12,6 +12,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     ));
 
 
+//Razor runtime compilation added (Need nuget package to be installed first for razor runtime compilation)
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 //Make sure to add all services just above this
 var app = builder.Build();
