@@ -42,6 +42,12 @@ namespace PropertyRental.Controllers
         [ValidateAntiForgeryToken] // Helps in preventing cross site request forgery attacks
         public IActionResult Create(Category obj)
         {
+            //Custom Validations
+            if(obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Custom Error1", "The Name and Displayorder cannot be same");
+            }
+
             //Validate the object received
             if (ModelState.IsValid)
             {
