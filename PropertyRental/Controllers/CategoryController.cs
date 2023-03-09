@@ -45,7 +45,7 @@ namespace PropertyRental.Controllers
             //Custom Validations
             if(obj.Name == obj.DisplayOrder.ToString())
             {
-                ModelState.AddModelError("Custom Error1", "The Name and Displayorder cannot be same");
+                ModelState.AddModelError("Name", "The Name and Displayorder cannot be same");
             }
 
             //Validate the object received
