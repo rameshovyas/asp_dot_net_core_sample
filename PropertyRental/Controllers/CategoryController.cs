@@ -30,5 +30,7 @@ namespace PropertyRental.Controllers
 
             return View(objCategoryList);
         }
+
+        
     }
 }
