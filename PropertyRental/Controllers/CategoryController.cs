@@ -85,7 +85,7 @@ namespace PropertyRental.Controllers
         }
 
         //Post
-        // Called when we post the create category form
+        // Called when we post the edit category form
         [HttpPost]
         [ValidateAntiForgeryToken] // Helps in preventing cross site request forgery attacks
         public IActionResult Edit(Category obj)
@@ -100,8 +100,8 @@ namespace PropertyRental.Controllers
             if (ModelState.IsValid)
             {
 
-                //Add the category object to database
-                _db.Categories.Add(obj);
+                //Update the category object 
+                _db.Categories.Update(obj);
                 _db.SaveChanges(); // Saved to database
 
                 //After saving data redirect to index action of category
@@ -112,5 +112,49 @@ namespace PropertyRental.Controllers
                 return View(obj);
             }
         }
+
+       
+
+        //Get
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            //Find the category in table with the specified id
+            //var categoryFromDB = _db.Categories.SingleOrDefault(c => c.Id == id);
+            var categoryFromDB = _db.Categories.Find(id);
+            if (categoryFromDB == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDB);
+        }
+
+        //Post
+        
+        [HttpPost,ActionName("Delete")]
+        [ValidateAntiForgeryToken] // Helps in preventing cross site request forgery attacks
+        public IActionResult DeletePOST(int ? id)
+        {
+                var obj = _db.Categories.Find(id);
+                if (obj == null)
+                {
+                    return NotFound();
+                }
+            
+
+                //Update the category object 
+                _db.Categories.Remove(obj);
+                _db.SaveChanges(); // Saved to database
+
+                //After saving data redirect to index action of category
+                return RedirectToAction("Index");
+            
+            }
+        
     }
 }
