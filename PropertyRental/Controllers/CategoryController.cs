@@ -56,6 +56,8 @@ namespace PropertyRental.Controllers
                 _db.Categories.Add(obj);
                 _db.SaveChanges(); // Saved to database
 
+                //Using TempData for alerts
+                TempData["success"] = "Category Created Successfully!";
                 //After saving data redirect to index action of category
                 return RedirectToAction("Index");
             }
@@ -103,7 +105,8 @@ namespace PropertyRental.Controllers
                 //Update the category object 
                 _db.Categories.Update(obj);
                 _db.SaveChanges(); // Saved to database
-
+                                   //Using TempData for alerts
+                TempData["success"] = "Category Edited Successfully!";
                 //After saving data redirect to index action of category
                 return RedirectToAction("Index");
             }
@@ -150,6 +153,8 @@ namespace PropertyRental.Controllers
                 //Update the category object 
                 _db.Categories.Remove(obj);
                 _db.SaveChanges(); // Saved to database
+                 //Using TempData for alerts
+                TempData["success"] = "Category Deleted Successfully!";
 
                 //After saving data redirect to index action of category
                 return RedirectToAction("Index");
